@@ -55,5 +55,5 @@ For this reason, I've created Read and Write methods to wrap get and set cache f
 
 # Improvement for the future
 
-As I mentioned in the code, deleting the expired keys in the Read method when I check that they has expired, is not a good solution, since it only eliminates the keys that are consulted again, but those that are not, are stored in the map consuming memory and I know that thos values aren't valid any more.
+As I mentioned in the code, deleting the expired keys in the Read method when I check that they has expired, is not a good solution, since it only eliminates the keys that are consulted again, but those that are not, are stored in the map consuming memory and I know that those values aren't valid any more.
 The exercise didn't ask to do it, but I'd clearly do another erase mechanism when the TTL of each key is met. The simplest is to define a task that runs every certain time configured and delete those keys that are expired. 
