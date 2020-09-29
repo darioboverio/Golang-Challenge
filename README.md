@@ -37,7 +37,7 @@ What we want to see is how well you handle yourself given the time you spend on 
 
 Please email your solution as soon as you have completed the challenge or the time is up.
 
-## Decisions taken
+# Decisions taken
 
 * To parallelize calls to GetPriceFor, I decided to use the Go feature errgroup.WithContext which provides synchronization, error propagation, and Context cancelation for groups of goroutines. The derived Context is canceled the first time a function passed to Go returns a non-nil error or the first time Wait returns, whichever occurs first.
 
@@ -53,7 +53,7 @@ For this reason, I've created Read and Write methods to wrap get and set cache f
 
 * I added 3 more unit test for checking the correctness of my code.
 
-# Improvement for the future
+## Improvement for the future
 
 As I mentioned in the code, deleting the expired keys in the Read method when I check that they has expired, is not a good solution, since it only eliminates the keys that are consulted again, but those that are not, are stored in the map consuming memory and I know that those values aren't valid any more.
 The exercise didn't ask to do it, but I'd clearly do another erase mechanism when the TTL of each key is met. The simplest is to define a task that runs every certain time configured and delete those keys that are expired. 
